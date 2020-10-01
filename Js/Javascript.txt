@@ -1,6 +1,6 @@
 Javascript in scripting langulage used to develop dynamic web applications
 
-//commnet can be write like this in js
+//commnet can be write like this in js or /* * /
 
 //to get/set data of refrence of html elemnt by id class, tag
 //get
@@ -326,11 +326,9 @@ Math.round(4.4);    // returns 4
 Math.random();      // returns a random number
 
 
-conditions:
+conditions statments:
 if
 if else
-while
-for 
 switch
 
 switch (true) {
@@ -342,12 +340,17 @@ switch (true) {
     break;
   default:
     text = "Looking forward to the Weekend";
-
-
-
-
-
 }
+
+un-conditions statments:
+comments
+break
+continue
+
+loops:
+while
+for 
+do-while
 
 
 arrow funtions:
@@ -389,6 +392,32 @@ var person = {
 
 $(document).ready() 		//method will run once the page DOM is ready to execute JavaScript code.
 $(window).load()		//runs only once the entire page is ready (not only DOM).
+
+
+
+
+How to defend against the Persistent XSS attack?
+
+Defending against this attack can be done on the client side or server side.
+
+1.Client-side: The only way to defend this attack in client side is:
+
+Disable JavaScript within the browser
+         It may not be a suitable solution as many websites requires it to function appropriately. Therefore, use a safe, secure browser which is of the latest version and with XSS filters turned on. 
+
+ 
+
+2.Server-side: Some of the measures to defend in server side are:
+
+Sanitize all user input properly before storing it in the web server.
+
+Sanitize the static content before presenting to the end users.
+
+Use a web vulnerability scanner to detect XSS vulnerability in web applications on a regular basis.
+
+
+
+
 
 
 
