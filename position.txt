@@ -15,7 +15,7 @@ n element with position: fixed; is positioned relative to the viewport, which me
 
 A fixed element does not leave a gap in the page where it would normally have been located.
 
-Relative:
+Absolute:
 An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed).
 
 However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling.
