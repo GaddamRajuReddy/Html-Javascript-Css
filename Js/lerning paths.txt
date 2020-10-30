@@ -1,0 +1,2 @@
+httpsjavascript.info
+https://medium.com/@josephcardillo/the-difference-between-var-let-and-const-in-javascript-part-2-60fa568d0a0

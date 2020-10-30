@@ -21,6 +21,25 @@ JavaScript identifiers (names) must begin with:
 
 //variabls
 var cust="a" , const cust=5 , let cust=false;
+A var variable can be redeclared and updated.and scope in within funtion scope
+A let variable be be updated but not redeclared.and scope in within block  scoped
+A const value not chnagable, value must assigned when decalred, it’s block-scoped,
+
+let points = 50;
+let winner = false;
+if(points > 40) {
+  let winner = true;
+}
+console.log(winner); // false
+
+var points = 50;
+var winner = false;
+if(points > 40) {
+  var winner = true;
+}
+console.log(winner); // true
+
+
 
 var carName;			//undefined
 
@@ -72,14 +91,15 @@ typeof null                   	// Returns "object"
 undefined and null are equal in value but different in data type: both defination is a variable without value is undefined/null
 
 
-data types: 
+premitives data types: 
 string
 number
 boolean
 undefined
 null
-array
 
+objects:
+array
 object
 function
 
@@ -117,12 +137,28 @@ person["firstname"]	o/p- John
 
 //add extra properties to object
 person["country"]="india";
+person.city="hyd";
 
 //looping object or to diaply keys and values in object
 for (var key of Object.keys(person)) {
     console.log(key + " -> " + person[key])    o/p- firstname -> John
 }
 
+//looping object or to diaply keys and values in object
+for (let key in person) {
+  console.log(key);          //object kyes
+  console.log(person[key]);  //object values
+}
+
+//looping object or to diaply keys and values in object
+Object.keys(person).forEach(function(key) {
+    console.log(key, person[key]);
+});
+
+//looping object or to diaply keys and values in object
+for (const [key, value] of Object.entries(person)) {
+    console.log(key, value);
+}
 
 //check key exist in object or not 
 if (person.hasOwnProperty("firstname"))
@@ -156,6 +192,13 @@ cars.push("walk")
 //remove last element in array
 cars.pop();   
 
+//removes an item from the beginning,
+cars.shift()  
+
+
+//adds element in array from the beginning,
+cars.unshift("walk"); 
+
 //delete using inex
 delete cars[0];
 
@@ -177,7 +220,7 @@ typeof cars
 
 array Iteration Methods:
 
-foreach():use if you want to loop only
+foreach():use if you want to loop only, is should not return 
 
 var fruits = ["apple", "orange", "cherry"];
 
@@ -203,16 +246,17 @@ var numbers1 = [45, 4, 9, 16, 25];
 var total= numbers1.reduce((total,value, index, array)=>{
 		   return total + value;
 		});
+The method arr.reduceRight does the same, but goes from right to left.
 
-
-every(): use if you want to check, all array values passed condition
+every(): use if you want to check, all array values passed condition  then return ture else false
 
 var numbers1 = [45, 4, 9, 16, 25];
 var ispassed= numbers1.every((value, index, array)=>{
 		   return value>18;				o/p false
 		});
 
-some(): use if you want to check, some of array values passed condition
+some(): use if you want to check, some of array values passed condition then return ture else false
+
 
 var numbers1 = [45, 4, 9, 16, 25];
 var ispassed=numbers1.some((value, index, array)=>{
@@ -220,23 +264,21 @@ var ispassed=numbers1.some((value, index, array)=>{
 		});
 
 
-indexOf(): use if you want to get index of value in array
+indexOf(): when we want to find the index of the first occurrence of a specific value in an array
 var a = numbers1.indexOf(16);					o/p 3
 
-
-find(): method returns the value of the first array element that passes a test function.
-
-var numbers1 = [45, 4, 9, 16, 25];
-var ispassed=numbers1.find((value, index, array)=>{
-		   return value>18;				o/p 45
-		});
-
-findIndex(): method returns the index of the first array element that passes a test function.
+findIndex(): method returns the index of the first occurrence of a specific value in an array that passes a said condition..
 var numbers1 = [45, 4, 9, 16, 25];
 var ispassed=numbers1.findIndex((total,value, index, array)=>{
 		   return value>18;				o/p 0
 		});
 
+find(): method returns the value of the first occurrence of a specific value in an array that passes a said condition..
+
+var numbers1 = [45, 4, 9, 16, 25];
+var ispassed=numbers1.find((value, index, array)=>{
+		   return value>18;				o/p 45
+		});
 
 
 splice(): method can be used to add new items to an array at specified postions:
@@ -268,6 +310,41 @@ cars.sort((a, b)=>{return a - b});
 
 //reverese the elements in array
 cars.reverse();
+
+
+
+Different Kinds of Loops:
+JavaScript supports different kinds of loops:
+foreach - loop arrays values                            
+for - loops through a block of code a number of times   
+for/in - loops through the properties of an object      
+for/of - loops through the values of an iterable object 
+while - loops through a block of code while a specified condition is true
+do/while - also loops through a block of code while a specified condition is true
+
+
+examples:
+let list = [4, 5, 6];
+
+for (let i in list) {
+   console.log(i); // "0", "1", "2",
+}
+
+for (let i of list) {
+   console.log(i); // "4", "5", "6"
+}
+
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+for (var key of Object.keys(person)) {
+    console.log(key + " -> " + person[key])    
+}
+
+for (let key in person) {
+  console.log(key);          //object kyes
+  console.log(person[key]);  //object values
+}
+
 
 
 
