@@ -333,6 +333,10 @@ do/while - also loops through a block of code while a specified condition is tru
 examples:
 let list = [4, 5, 6];
 
+list.forEach((value, index, array)=>{
+console.log(value)
+});
+
 for (let i in list) {
    console.log(i); // "0", "1", "2",
 }
@@ -352,6 +356,20 @@ for (let key in person) {
   console.log(person[key]);  //object values
 }
 
+var j=0;
+while(j<list.length){
+  console.log(list[j]);
+  j++;
+}
+
+var i = 0;
+do {
+  console.log(list[i]);
+  i++;
+} 
+while (i<list.length){
+  console.log('end');
+};
 
 
 
@@ -360,8 +378,27 @@ functions:
 function sample(x) {
   return x*20;
 }
+funtion within another funtion:
+funtion returns funtion:
+funtion pass as param in funtion:
+
+arrow funtions:
+
+hello = () => {
+  return "Hello World!";
+}
+document.getElementById("demo").innerHTML = hello();
 
 
+// constructor function
+function Person () {
+    this.name = 'John',
+    this.age = 23
+}
+
+// creating objects
+let person1 = new Person();
+let person2 = new Person();
 
 events:
 
@@ -444,14 +481,6 @@ for in
 for of
 
 
-arrow funtions:
-
-hello = () => {
-  return "Hello World!";
-}
-document.getElementById("demo").innerHTML = hello();
-
-
 
 exception handling:
 
@@ -475,9 +504,11 @@ var person = {
   lastName : "Doe",
   id       : 5566,
   fullName : function() {
-    return this.firstName + " " + this.lastName;
+    return this.firstName + " " + this.lastName; //this is object person
   }
 };
+
+console.log(this); // here this is window object
 
 
 
@@ -537,4 +568,41 @@ var innerFunc = OuterFunction();
 
 
 
+prototype:
+In JavaScript, every function and object has a property named prototype by default
+by using this prototype we can add properties and methods to a constructor function.
+All JavaScript objects inherit properties and methods from a prototype.
 
+// constructor function
+function Person () {
+    this.name = 'John',
+    this.age = 23
+}
+
+// creating objects
+let person1 = new Person();
+let person2 = new Person();
+
+// adding property to constructor function
+Person.prototype.gender = 'male';
+
+// prototype value of Person
+console.log(Person.prototype);
+
+// inheriting the property from prototype
+console.log(person1.gender);
+console.log(person2.gender);
+
+o/p:
+{ gender: "male" }
+male
+male
+In the above program, we have added a new property gender to the Person constructor function using:
+
+Person.prototype.gender = 'male';
+Then object person1 and person2 inherits the property gender from the prototype property of Person constructor function.
+
+
+
+Hoisting: 
+it is JavaScript's default behavior of moving all declarations to the top of the current scope
