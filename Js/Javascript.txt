@@ -25,6 +25,11 @@ A var variable can be redeclared and updated.and scope in within funtion scope
 A let variable be be updated but not redeclared.and scope in within block  scoped
 A const value not chnagable, value must assigned when decalred, it’s block-scoped,
 
+Variables created without a declaration keyword (var, let, or const) are always global, even if they are created inside a function.
+Global variables live until the page is discarded, like when you navigate to another page or close the window.
+Local variables have short lives. They are created when the function is invoked, and deleted when the function is finished.
+
+
 let points = 50;
 let winner = false;
 if(points > 40) {
@@ -218,7 +223,7 @@ typeof cars
 
 
 
-array Iteration Methods:
+array Methods:
 
 foreach():use if you want to loop only, is should not return 
 
@@ -234,19 +239,6 @@ var array= cars.map((value, index, array)=>{
 		    return value/10;
 		});
 
-filter(): creates a new array with filtering data but can not change original values,use if you want to get new array with filter,
-
-var array= cars.filter((value, index, array)=>{
-		    return value=="walk";
-		});
-
-reduce(): use if you want to sum all array values ex: [1,2,3] if you want sum 6 then use reduce.
-
-var numbers1 = [45, 4, 9, 16, 25];
-var total= numbers1.reduce((total,value, index, array)=>{
-		   return total + value;
-		});
-The method arr.reduceRight does the same, but goes from right to left.
 
 every(): use if you want to check, all array values passed condition  then return ture else false
 
@@ -266,12 +258,9 @@ var ispassed=numbers1.some((value, index, array)=>{
 
 indexOf(): when we want to find the index of the first occurrence of a specific value in an array
 var a = numbers1.indexOf(16);					o/p 3
+arr.lastIndexOf(item, from) – same, but looks for from right to left.
+arr.includes(item, from) – looks for item starting from index from, returns true if found.
 
-findIndex(): method returns the index of the first occurrence of a specific value in an array that passes a said condition..
-var numbers1 = [45, 4, 9, 16, 25];
-var ispassed=numbers1.findIndex((total,value, index, array)=>{
-		   return value>18;				o/p 0
-		});
 
 find(): method returns the value of the first occurrence of a specific value in an array that passes a said condition..
 
@@ -280,12 +269,28 @@ var ispassed=numbers1.find((value, index, array)=>{
 		   return value>18;				o/p 45
 		});
 
+findIndex(): method returns the index of the first occurrence of a specific value in an array that passes a said condition..
+var numbers1 = [45, 4, 9, 16, 25];
+var ispassed=numbers1.findIndex((total,value, index, array)=>{
+		   return value>18;				o/p 0
+		});
+
+
+filter(): creates a new array with filtering data but can not change original values,use if you want to get new array with filter,
+
+var array= cars.filter((value, index, array)=>{
+		    return value=="walk";
+		});
 
 splice(): method can be used to add new items to an array at specified postions:
 var fruits = ["Banana", "Orange", "Apple", "Mango"];	//adding at 2nd position and 0 remval
 fruits.splice(2, 0, "Lemon", "Kiwi");			o/p Banana,Orange,Lemon,Kiwi,Apple,Mango
 fruits.splice(0, 1);					//remove at position 0 , with 1 remove element
 
+slice(): method slices out a piece of an array into a new array. 
+var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];	//1 is start index, 3 is last index but not include last one
+var citrus = fruits.slice(1,3);					o/p 1)Banana,Orange,Lemon,Apple,Mango      2) Orange,Lemon
+var citrus = fruits.slice(1);					o/p 1)Banana,Orange,Lemon,Apple,Mango      2) Orange,Lemon,Apple,Mango
 
 
 concat(): method creates a new array by merging (concatenating) existing arrays:
@@ -293,11 +298,13 @@ var myGirls = ["Cecilie"];
 var myBoys = ["Emil"];
 var myChildren = myGirls.concat(myBoys);   		o/p Cecilie,emil
 
+reduce(): use if you want to sum all array values ex: [1,2,3] if you want sum 6 then use reduce.
 
-slice(): method slices out a piece of an array into a new array. 
-var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];	//1 is start index, 3 is last index but not include last one
-var citrus = fruits.slice(1,3);					o/p 1)Banana,Orange,Lemon,Apple,Mango      2) Orange,Lemon
-var citrus = fruits.slice(1);					o/p 1)Banana,Orange,Lemon,Apple,Mango      2) Orange,Lemon,Apple,Mango
+var numbers1 = [45, 4, 9, 16, 25];
+var total= numbers1.reduce((total,value, index, array)=>{
+		   return total + value;
+		});
+The method arr.reduceRight does the same, but goes from right to left.
 
 
 toString(): convert array to comma saparated string.
@@ -354,6 +361,8 @@ function sample(x) {
   return x*20;
 }
 
+
+
 events:
 
 onchange	An HTML element has been changed
@@ -367,7 +376,7 @@ onload		The browser has finished loading the page
 
 
 
-Date:
+Date methods:
 
 getFullYear()	Get the year as a four digit number (yyyy)
 getMonth()	Get the month as a number (0-11)
@@ -419,15 +428,20 @@ switch (true) {
     text = "Looking forward to the Weekend";
 }
 
+
 un-conditions statments:
 comments
 break
 continue
 
+
 loops:
 while
 for 
 do-while
+foreach
+for in
+for of
 
 
 arrow funtions:
@@ -436,6 +450,7 @@ hello = () => {
   return "Hello World!";
 }
 document.getElementById("demo").innerHTML = hello();
+
 
 
 exception handling:
@@ -494,8 +509,30 @@ Use a web vulnerability scanner to detect XSS vulnerability in web applications 
 
 
 
+closure:
+A closure is a function having access to the parent scope, even after the parent function has closed/returned.
+useful to create private variables or functions
+var add = (function () {
+  var counter = 0;
+  return function () {counter += 1; return counter}
+})();
+
+add();
 
 
+or 
+
+function OuterFunction() {
+
+    var outerVariable = 100;
+
+    function InnerFunction() {
+        alert(outerVariable);
+    }
+
+    return InnerFunction;
+}
+var innerFunc = OuterFunction();
 
 
 
