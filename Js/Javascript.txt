@@ -19,8 +19,12 @@ JavaScript identifiers (names) must begin with:
 2. A dollar sign ($)
 3. Or an underscore (_)
 
-//variabls
+
+
+***************** variabls (var , let , const ) ******************
+
 var cust="a" , const cust=5 , let cust=false;
+
 A var variable can be redeclared and updated.and scope in within funtion scope
 A let variable be be updated but not redeclared.and scope in within block  scoped
 A const value not chnagable, value must assigned when decalred, it’s block-scoped,
@@ -35,66 +39,81 @@ let winner = false;
 if(points > 40) {
   let winner = true;
 }
-console.log(winner); // false
+console.log(winner);      // false
 
 var points = 50;
 var winner = false;
 if(points > 40) {
   var winner = true;
 }
-console.log(winner); // true
+console.log(winner);      // true
 
 
+************************** basics ************************
 
-var carName;			//undefined
+var carName;		         	//undefined
 
 var carName = "Volvo";		// redeclaring posible for var 
-var carName;			// it can't loose its value 
+var carName;			        // it can't loose its value 
 
-var x = "5" + 2 + 3;		//523
+var x = "5" + 2 + 3;		  //523
 
-var x = 2 + 3 + "5";		//55
+var x = 2 + 3 + "5";		  //55
 
 var x = "100";
 var y = "10";
-var z = x - y;			//90
+var z = x - y;			      //90
 
 var x = 100 / "Apple";
-isNaN(x); 			//returns True
+isNaN(x); 			         //returns True
 
 var x = NaN;
 var y = "5";
-var z = x + y;			//NaN5
+var z = x + y;			     //NaN5
 
 var x = NaN;
 var y = 5;
-var z = x + y;         		// z will be NaN
+var z = x + y;           // z will be NaN
 
 
-var x = 10;			//assignment operators
+var x = 10;			         //assignment operators
 x += 5;
+
+********************** == vs ==== *******************
 
 
 = is used for assigning values to a variable in JavaScript.
 == is used for comparison between two variables irrespective of the datatype of variable.
 === is used for comparision between two variables and check datatype and compare two values.
 
-typeof null  			//the data type of null is an object.
-typeof undefined		//the data type of undefined is an undefined.
+
+**********************  Typeof ***********************
+
+typeof null  			              // Returns object.
+typeof undefined		            // Returns undefined.
 typeof "John"                 	// Returns "string"
 typeof 3.14                   	// Returns "number"
-typeof NaN                    	// Returns "number"
 typeof false                  	// Returns "boolean"
+
 typeof [1,2,3,4]              	// Returns "object"
 typeof {name:'John', age:34}  	// Returns "object"
-typeof new Date()             	// Returns "object"
 typeof function () {}         	// Returns "function"
-typeof myCar                  	// Returns "undefined" *
-typeof null                   	// Returns "object"
+
+typeof myCar                  	// Returns "undefined" 
+typeof new Date()             	// Returns "object"
+typeof NaN                    	// Returns "number"
 
 
-undefined and null are equal in value but different in data type: both defination is a variable without value is undefined/null
 
+************************* null vs undefined : *********************
+
+undefines:It means a variable declared, but no value has been assigned a value.
+null: Null as an assignment value, So you can assign the value null to any variable.
+undefined and null are equal in value but different in data type
+type of null is an object but the type of undefined is undefined.
+
+
+************************** data types *******************
 
 premitives data types: 
 string
@@ -108,6 +127,7 @@ array
 object
 function
 
+//don't create like this 
 var y = new Number(123);
 var y = new String("John");
 var x = new Array("Saab", "Volvo", "BMW");
@@ -115,7 +135,7 @@ var d = new Date();
 var y = new Boolean(false);
 
 
-Number Methods:
+*********************   Number Methods: ***********************
 
 toString()			//returns a number as a string.
 valueOf() 			//returns a number as a number.
@@ -133,7 +153,8 @@ parseInt("10 20 30");   	// returns 10
 
 
 
-object:  
+
+*****************************  object:   **********************************
 
 var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
 //read data from objct
@@ -181,7 +202,10 @@ person=null;
 var size = Object.keys(person).length;
 
 
-Array: 
+
+
+************************* Array:  *****************************
+
 var cars = ["Saab", "Volvo", "BMW"];   //good way
 or
 var cars = new Array("Saab", "Volvo", "BMW"); //bad way
@@ -223,7 +247,7 @@ typeof cars
 
 
 
-array Methods:
+*************************** array Methods:********************
 
 foreach():use if you want to loop only, is should not return 
 
@@ -320,7 +344,8 @@ cars.reverse();
 
 
 
-Different Kinds of Loops:
+********************* Different Kinds of Loops: ********************
+
 JavaScript supports different kinds of loops:
 foreach - loop arrays values                            
 for - loops through a block of code a number of times   
@@ -373,7 +398,7 @@ while (i<list.length){
 
 
 
-functions:
+*********************** functions: ***********************
 
 function sample(x) {
   return x*20;
@@ -382,7 +407,13 @@ funtion within another funtion:
 funtion returns funtion:
 funtion pass as param in funtion:
 
-arrow funtions:
+
+********************* arrow funtions: **********************
+
+Arrow functions were introduced in ES6.
+Arrow functions allow us to write shorter function syntax  and should not have any funtion name.
+it has lambda operator , left side of operator is funtion params and right side is expresstion stamtents.
+
 
 hello = () => {
   return "Hello World!";
@@ -400,7 +431,8 @@ function Person () {
 let person1 = new Person();
 let person2 = new Person();
 
-events:
+
+**************************** events: ****************************
 
 onchange	An HTML element has been changed
 onclick		The user clicks an HTML element
@@ -413,7 +445,7 @@ onload		The browser has finished loading the page
 
 
 
-Date methods:
+**************************** Date methods:*********************
 
 getFullYear()	Get the year as a four digit number (yyyy)
 getMonth()	Get the month as a number (0-11)
@@ -442,14 +474,15 @@ document.getElementById("demo").innerHTML = months[d.getMonth()];
 
 
 
-Math funtins:
+**************************** Math funtins: ******************
 
 Math.round(4.7);    // returns 5
 Math.round(4.4);    // returns 4
 Math.random();      // returns a random number
 
 
-conditions statments:
+**************************** conditions statments:****************
+
 if
 if else
 switch
@@ -472,7 +505,8 @@ break
 continue
 
 
-loops:
+**************************** loops: ***************
+
 while
 for 
 do-while
@@ -482,7 +516,7 @@ for of
 
 
 
-exception handling:
+************************ exception handling: *************
 
 try {
   Block of code to try
@@ -497,7 +531,7 @@ finally {
 
 
 
-this:
+******************************* this: *************************
 
 var person = {
   firstName: "John",
@@ -511,13 +545,13 @@ var person = {
 console.log(this); // here this is window object
 
 
-
+***************** ready vs load  ************************
 
 $(document).ready() 		//method will run once the page DOM is ready to execute JavaScript code.
 $(window).load()		//runs only once the entire page is ready (not only DOM).
 
 
-
+********************* security ********************************
 
 How to defend against the Persistent XSS attack?
 
@@ -540,7 +574,9 @@ Use a web vulnerability scanner to detect XSS vulnerability in web applications 
 
 
 
-closure:
+***************************** closure: *******************
+
+
 A closure is a function having access to the parent scope, even after the parent function has closed/returned.
 useful to create private variables or functions
 var add = (function () {
@@ -568,7 +604,8 @@ var innerFunc = OuterFunction();
 
 
 
-prototype:
+**************************** prototype: *************************
+
 In JavaScript, every function and object has a property named prototype by default
 by using this prototype we can add properties and methods to a constructor function.
 All JavaScript objects inherit properties and methods from a prototype.
@@ -604,11 +641,12 @@ Then object person1 and person2 inherits the property gender from the prototype 
 
 
 
-Hoisting: 
+******************************** Hoisting:  **************
+
 it is JavaScript's default behavior of moving all declarations to the top of the current scope
 
 
-ES5 VS ES6:
+******************************** ES5 VS ES6:******************
 ES5;
 ES5 is the fifth edition of the ECMAScript
 It was introduced in 2009.
@@ -633,5 +671,165 @@ ECMAScript 6 introduced sets and maps.
 Spread operator (…) like var obj3 = { ...obj1, ...obj2 };
 Template Literal (`) like const newVariable = `something ${myVariable}`;
 different way for import and export modules.
+ES6 introduced the promises that allow you to write asynchronous code in more manageable ways.
+spread(...) operator and rest(...) parameters 
+
+********************* call(), applay(), bind() ********************************
+
+so this behaves differently accoring to scopp,
+if funtion scope it referes to funtion object
+if in document scope it refres to window object 
+
+
+solution to thet problem is:
+Call/apply are call the function immediately, whereas bind returns a function and later executed,
+
+Call invokes the function with attaches this into function and allows you to pass in arguments one by one.
+Apply invokes the function with attaches this into function and allows you to pass in arguments as an array.
+Bind returns a new function, allowing you to pass in a this array and any number of arguments
+
+call:
+var person = {  
+  name: "James Smith",
+  hello: function(thing,thing2) {
+    console.log(this.name + " says hello " + thing + thing2);
+  }
+}
+
+person.hello("world");  // output: "James Smith says hello world world2"
+person.hello.call({ name: "Jim Smith" }, "world","world2"); // output: "Jim Smith says hello world world2"
+
+apply:
+var person = {  
+  name: "James Smith",
+  hello: function(thing,thing2) {
+    console.log(this.name + " says hello " + thing);
+  }
+}
+
+person.hello("world");  // output: "James Smith says hello world world2"
+person.hello.call({ name: "Jim Smith" }, ["world","world2"]); // output: "Jim Smith says hello world world2"
+
+
+bind:
+var person = {  
+  name: "James Smith",
+  hello: function(thing) {
+    console.log(this.name + " says hello " + thing);
+  }
+}
+var helloFunc = person.hello.bind({ name: "Jim Smith" }, "world");
+helloFunc();  // output: Jim Smith says hello world"
+
+
+******************************* callback ***************************
+
+In JavaScript, a callback is a function passed into another function as an argument to be executed later
+Callback functions can be synchronous or asynchronous.
+
+let oddNumbers = numbers.filter(function(number) {
+    return number % 2;
+});
+console.log(oddNumbers); // [ 1, 7, 3, 5 ]
+
+in ES6:
+let oddNumbers = numbers.filter(number => number % 2);
+
+
+
+********************************* promice ****************************
+
+A promise is an object that returns a value in the future.
+or 
+promise is stream where we can pass 1  evant at time and evnt is not cancelable.
+
+A promise has three states: pending, fulfilled, rejected
+A promise starts in the pending state and ends in either fulfilled state or rejected state.
+
+Consuming a Promise: then, catch, finally
+if promise is fullfiled then  then() method executed , if the promise is rejected the catch() method invoked .
+Place the code that you want to execute in the finally() method whether the promise is fulfilled or rejected.
+
+let completed = true;
+
+let learnJS = new Promise(function (resolve, reject) {
+    if (completed) {
+        resolve("I have completed learning JS.");
+    } else {
+        reject("I haven't completed learning JS yet.");
+    }
+});
+
+
+let learnJS = makePromise(true);
+
+learnJS
+    .then(success => console.log(success))
+    .catch(reason => console.log(reason))
+    .finally(() => createApp());
+
+
+****************************** async and await ********************************
+
+The async keyword allows you to define a function that handles asynchronous operations.
+To define an async function, you place the async keyword in front of the function keyword as follows:
+
+async function sayHi() {
+    return 'Hi';
+}
+
+
+You use the await keyword to wait for a Promise to settle either in resolved or rejected state. And you can use the await keyword only inside an async function:
+async function display() {
+    let result = await sayHi();
+    console.log(result);
+}
+In this example, the await keyword instructs JavaScript engine to wait for the sayHi() function to complete before displaying the message.
+
+If a promise resolves, the await promise returns the result. However, when the promise rejects, the await promise will throw an erro
+You can catch the error by using the try...catch statement
+
+async function getUser(userId) {
+    try {
+       const user = await Promise.reject(new Error('Invalid User Id'));
+    } catch(error) {
+       console.log(error);
+    }
+}
+
+
+
+*************************** spread vs rest ***************************
+
+rest:Rest Parameter is collecting all remaining elements into an array .
+function sum( first, ...others ) {
+    for ( var i = 0; i < others.length; i++ )
+        first += others[i];
+    return first;
+}
+console.log(sum(1,2,3,4))// sum(1, 2, 3, 4) == 10;
+
+
+spread: It’s the opposite to rest parameter , where rest parameter collects items into an array, 
+the spread operator unpacks the collected elements into single elements.
+
+var abc = ['a', 'b', 'c'];
+var def = ['d', 'e', 'f'];
+var alpha = [ ...abc, ...def ];
+console.log(alpha)// alpha == ['a', 'b', 'c', 'd', 'e', 'f']
+
+
+
+******** how to check particular value present in array in javascript
+
+using includes method which returns true if exist other wise false
+
+******** how to check particular value present in object in javascript
+
+hasOwnProperty() method
+in operator
+
+
+
 
 
