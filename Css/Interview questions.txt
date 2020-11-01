@@ -1,0 +1,30 @@
+how to add space between two elements in html -- margin , lign-height . padding
+what is box model
+
+
+************ what are the ways css inserted in web page*************
+
+external file
+<style type="text/css">
+      p { padding-bottom: 12px; }
+   </style>
+
+<p style="padding-bottom:12px;">Your Text</p>
+
+
+
+********* how to make the elemnt corner as rounded corners **********
+
+
+border-radius property, you can give any element "rounded corners".
+
+
+**********what propery will help to void overflow of content*******
+
+The overflow property
+overflow: visible|hidden|scroll|auto|initial|inherit;
+
+
+*****what are the propery will help to move element arround containe*****
+
+he position property specifies the type of positioning method used for an element (static, relative, fixed, absolute or sticky).
