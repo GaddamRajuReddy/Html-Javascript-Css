@@ -38,8 +38,6 @@ Range(Slider)
 
 
 ***************** div vs span ****************
-Only strings can be stored with localStorage or sessionStorage, but you can use JSON.stringify to store more complex objects and JSON.parse to read them
-
 
 A div is a block-level element and a span is an inline element.
 The div should be used to wrap sections of a document, while use spans to wrap small portions of text, images, etc
@@ -47,6 +45,8 @@ div accepts align attribute.but span not
 
 
 ************** local storage vs session storage ***************
+
+Only strings can be stored with localStorage or sessionStorage, but you can use JSON.stringify to store more complex objects and JSON.parse to read them
 
 session storage:
 The sessionStorage exists only within the current browser tab. Another tab with the same page will have a different session storage.
