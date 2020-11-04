@@ -1,4 +1,4 @@
-Javascript in scripting langulage used to develop dynamic web applications
+﻿Javascript in scripting langulage used to develop dynamic web applications
 
 //commnet can be write like this in js or /* * /
 
@@ -673,6 +673,21 @@ Template Literal (`) like const newVariable = `something ${myVariable}`;
 different way for import and export modules.
 ES6 introduced the promises that allow you to write asynchronous code in more manageable ways.
 spread(...) operator and rest(...) parameters 
+
+ECMAScript 7(2016):
+Array.prototype.includes()
+Exponentiation operator
+
+ECMAScript 8(2017):
+Async Functions (Brian Terlson)
+Shared memory and atomics (Lars T. Hansen)
+
+
+ECMAScript 9(2018):
+Asynchronous Iteration (Domenic Denicola, Kevin Smith)
+Rest/Spread Properties (Sebastian Markbåge)
+
+
 
 ********************* call(), applay(), bind() ********************************
 

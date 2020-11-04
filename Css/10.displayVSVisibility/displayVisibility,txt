@@ -1,7 +1,0 @@
-display: used to hide dom element but not remove from dom, it just hide, there is empty space
-visibility: used to remove element from dom. there is no empty space after applly
-
-
-display : none | block | inline | inline-block;   // lot of values
-
-visibility: visible | hidden | collapse | initial | inherit;
