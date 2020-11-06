@@ -684,17 +684,18 @@ ES6 is the sixth edition of the ECMAScript
 there are some additions to JavaScript data types.
 There are two new ways to define variables that are let and const.
 ES6 has a higher performance than ES5.
-An arrow function is a new feature introduced in ES6
-ES6 introduced the concept of for...of loop to perform an iteration over the values of the iterable objects.
-ES6 has provided a feature called classes to help us organize our code in a better wa
-inheritance in ES6 version
-new array methods find() and findIndex() methods
-ECMAScript 6 introduced sets and maps.
-Spread operator (…) like var obj3 = { ...obj1, ...obj2 };
-Template Literal (`) like const newVariable = `something ${myVariable}`;
+arrow functions :
+for...of        :    to perform an iteration over the values of the iterable objects.
+classes         :    to help us organize our code in a better wa
+inheritance     :  in ES6 version
+find() and findIndex() : 
+sets and maps.
+Spread operator (…)   like var obj3 = { ...obj1, a:20 };
+rest(...) parameters  like var obj3 = fun(a,..args[])
+Template Literal (`)  like const newVariable = `something ${myVariable}`;
 different way for import and export modules.
 ES6 introduced the promises that allow you to write asynchronous code in more manageable ways.
-spread(...) operator and rest(...) parameters 
+
 
 ECMAScript 7(2016):
 Array.prototype.includes()
@@ -709,6 +710,31 @@ ECMAScript 9(2018):
 Asynchronous Iteration (Domenic Denicola, Kevin Smith)
 Rest/Spread Properties (Sebastian Markbåge)
 
+
+********************* map and set ********************************
+
+Now we’ve learned about the following complex data structures:
+Objects for storing keyed collections.
+Arrays for storing ordered collections.
+But that’s not enough for real life. That’s why Map and Set also exist.
+
+Map is a collection of keyed data items, just like an Object. 
+But the main difference is that Map allows keys of any type.
+Methods and properties are:
+
+new Map() – creates the map.
+map.set(key, value) – stores the value by the key.
+map.get(key) – returns the value by the key, undefined if key doesn’t exist in map.
+map.has(key) – returns true if the key exists, false otherwise.
+map.delete(key) – removes the value by the key.
+map.clear() – removes everything from the map.
+map.size – returns the current element count.
+
+
+let map = new Map();
+map.set('1', 'str1');   // a string key
+map.set(1, 'num1');     // a numeric key
+map.set(true, 'bool1'); // a boolean key
 
 
 ********************* call(), applay(), bind() ********************************
@@ -861,7 +887,7 @@ console.log(alpha)// alpha == ['a', 'b', 'c', 'd', 'e', 'f']
 
 using includes method which returns true if exist other wise false
 
-******** how to check particular value present in object in javascript
+******** how to check particular key present in object in javascript
 
 hasOwnProperty() method
 in operator
