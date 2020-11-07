@@ -29,10 +29,4 @@ A sticky element toggles between relative and fixed, depending on the scroll pos
 
 
 
-
-When elements are positioned, they can overlap other elements.
-
-The z-index helps to specify the stack order of positioned elements that may overlap one another.
-The z-index default value is zero and can take on either a positive or negative number.
-
 check attached html file by changeing value of position property and observe
