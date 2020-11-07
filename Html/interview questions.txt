@@ -23,15 +23,23 @@ The Semantic elements:
 <Mark>
 <Figure>
 
-Required, Placeholders  ,Autofocus data-* Attribute
-Regular Expressions using pattern="[A-Za-z]{4,10}"
-Audio and video elements, Preload Videos Support
+Geolocation 
+Canvas 
+Audio & Video
+Drag and drop
+storage and caching
+web workers
+new Browser Support and compatibility.
+Local SQL databases
+
+New form controls, such as <calendar>, <date>, <time>, <email>, <url>, and <search>
+
+new attributes Required, Placeholders  ,Autofocus data-* Attribute and Regular Expressions using pattern="[A-Za-z]{4,10}"
+
+
 No More Types for Scripts and Links
-
-
 Email Inputs
 The Output, Meter Element
-
 Datalist
 Webfonts
 Range(Slider)
@@ -41,6 +49,7 @@ Range(Slider)
 
 A div is a block-level element and a span is an inline element.
 The div should be used to wrap sections of a document, while use spans to wrap small portions of text, images, etc
+span is used when we need our elements to be shown in a line, one after the other.
 div accepts align attribute.but span not
 
 
@@ -125,7 +134,16 @@ An ordered list starts with the <ol> tag. Each list item starts with the <li> ta
 
 
 
+************** How many web browsers does HTML5 support?*********
+ Most of the latest versions of Apple Safari, Google Chrome, Opera, Internet Explorer, and Mozilla Firefox are supported by HTML5.
 
 
+*************** webworkers*************************
+
+A web worker is a script that runs in the background (i.e., in another thread) without the page 
+needing to wait for it to complete. The user can continue to interact with the page while the web
+ worker runs in the background. Workers utilize thread-like message passing to achieve parallelism.
 
 
+************* imp links***************************
+https://www.toptal.com/html5/interview-questions
