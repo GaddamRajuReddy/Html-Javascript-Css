@@ -1,6 +1,9 @@
 ﻿Javascript in scripting langulage used to develop dynamic web applications
+Netscape is the software company who developed JavaScript.
+JavaScript is a client-side as well as server side scripting language
 
-//commnet can be write like this in js /* * /
+//commnet can be write like this in js 
+/*comment multiline  * /
 
 //to get/set data for refrence of html elemnt by id class, tag
 //get
@@ -49,6 +52,49 @@ if(points > 40) {
 console.log(winner);      // true
 
 
+************************** scopes and scope chaining ************************
+
+There are three types of scopes in JS:
+
+Global Scope : 
+Variables or functions declared in the global namespace have global scope
+
+Local or Function Scope :
+Any variables or functions declared inside a function have local/function scope
+
+Block Scope:
+Block scope is related to the variables declared using let and const. 
+Variables declared with var do not have block scope.
+Block scope tells us that any variable declared inside a block { }, 
+can be accessed only inside that block and cannot be accessed outside of it.
+
+scope chaining example:
+var y = 24;
+
+function favFunction(){
+  var x = 667;
+  var anotherFavFunction = function(){
+    console.log(x); // Does not find x inside anotherFavFunction, so looks for variable inside favFunction, outputs 667
+  }
+
+  var yetAnotherFavFunction = function(){
+    console.log(y); // Does not find y inside yetAnotherFavFunction, so looks for variable inside favFunction and does not find it, so looks for variable in global scope, finds it and outputs 24
+  }
+
+  anotherFavFunction();
+  yetAnotherFavFunction();
+}
+
+
+favFunction();
+
+As you can see in the code above, if the javascript engine does not find the variable in local scope,
+ it tries to check for the variable in the outer scope. If the variable does not exist 
+ in the outer scope, it tries to find the variable in the global scope.
+
+If the variable is not found in the global space as well, reference error is thrown.
+
+
 ************************** basics ************************
 
 var carName;		         	//undefined
@@ -70,6 +116,19 @@ var x = "100";
 var y = "10";
 var z = x - y;			      //90
 
+
+******************** NaN *****************************
+
+NaN property represents “Not-a-Number” value. It indicates a value which is not a legal number.
+isNaN() function converts the given value to a Number type, and then equates to NaN.
+
+isNaN("Hello")    // Returns true
+isNaN(345)        // Returns false
+isNaN('1')        // Returns false, since '1' is converted to Number type which results in 0 ( a number) 
+isNaN(true)       // Returns false, since true converted to Number type results in 1 ( a number)
+isNaN(false)      // Returns false
+isNaN(undefined)  // Returns true
+
 var x = 100 / "Apple";    // null
 isNaN(x); 			          // True
 
@@ -88,6 +147,8 @@ x += 5;
 
 ********************** == vs ==== *******************
 
+Both are comparison operators. The difference between both the operators is that,“==” is used 
+to compare values whereas, “ === “ is used to compare both value and types.
 
 = is used for assigning values to a variable in JavaScript.
 == is used for comparison between two variables irrespective of the datatype of variable.
@@ -484,9 +545,7 @@ for of
 function sample(x) {
   return x*20;
 }
-funtion within another funtion:
-funtion returns funtion:
-funtion pass as param in funtion:
+
 
 // constructor function
 function Person () {
@@ -498,18 +557,50 @@ function Person () {
 let person1 = new Person();
 let person2 = new Person();
 
+Constructor functions are used to create objects in javascript.
+If we want to create multiple objects having similar properties and methods, constructor functions are used.
+Name of a constructor function should always be written in Pascal Notation: every word should start with a capital letter.
 
-*********************** class: ***********************
 
-// constructor function
+*********************** Higher Order Functions in javascript: ***********************
+
+Functions that operate on other functions, either by taking them as arguments or by 
+returning them, are called higher-order functions.
+
+Means:
+funtion within another funtion:
+funtion returns funtion:
+funtion pass as param in funtion:
+
+function higherOrder(fn) {
+  fn();
+}
+
+function higherOrder2() {
+  return function() {
+    return "Do something";
+  }
+}
+var x = higherOrder2();
+X();
+
+
+*********************** class: from ES6 ***********************
+
 class Person {
     this.name = 'John',
     this.age = 23
 }
 
 // creating objects
-let person1 = new Person();
+let person1 = new Person();  
 let person2 = new Person();
+
+Unlike functions, classes are not hoisted. A class cannot be used before it is declared.
+A class can inherit properties and methods from other classes by using the extend keyword.
+All the syntaxes inside the class must follow the strict mode(‘use strict’) of javascript.
+ Error will be thrown if the strict mode rules are not followed.
+
 
 ********************* arrow funtions: **********************
 
@@ -564,6 +655,12 @@ var person = {
 };
 
 console.log(this); // here this is window object
+
+The silly way to understanding the this keyword is, whenever the function is invoked,
+check the object before the dot . The value of this . keyword will always be the object 
+before the dot .
+If there is no object before the dot like in example1, the value of this keyword will 
+be the global object.
 
 
 ***************** ready vs load  ************************
@@ -628,6 +725,15 @@ var innerFunc = OuterFunction();
 
 **************************** prototype: *************************
 
+All javascript objects inherit properties from a prototype.
+For example,
+
+Date objects inherit properties from the Date prototype
+Math objects inherit properties from the Math prototype
+Array objects inherit properties from the Array prototype.
+
+On top of the chain is Object.prototype. Every prototype inherits properties and methods from the Object.prototype
+
 In JavaScript, every function and object has a property named prototype by default
 by using this prototype we can add properties and methods to a constructor function.
 All JavaScript objects inherit properties and methods from a prototype.
@@ -666,7 +772,7 @@ Then object person1 and person2 inherits the property gender from the prototype 
 ******************************** Hoisting:  **************
 
 it is JavaScript's default behavior of moving all declarations to the top of the current scope
-
+Variable initializations are not hoisted, only variable declarations are hoisted
 
 ******************************** ES5 VS ES6:******************
 ES5;
@@ -750,6 +856,8 @@ Call/apply are call the function immediately, whereas bind returns a function an
 Call invokes the function with attaches this into function and allows you to pass in arguments one by one.
 Apply invokes the function with attaches this into function and allows you to pass in arguments as an array.
 Bind returns a new function, allowing you to pass in a this array and any number of arguments
+
+“this” keyword is the owner object,
 
 call:
 var person = {  
@@ -864,6 +972,9 @@ async function getUser(userId) {
 
 *************************** spread vs rest ***************************
 
+Rest parameter is used in function declaration whereas the spread operator is used in function calls.
+Rest parameter is used to take a variable number of arguments and turns into an array while the spread operator takes an array or an object and spreads it
+
 rest:Rest Parameter is collecting all remaining elements into an array .
 function sum( first, ...others ) {
     for ( var i = 0; i < others.length; i++ )
@@ -894,5 +1005,109 @@ in operator
 
 
 
+*************Explain Implicit Type Coercion in javascript.***************
+
+Implicit type coercion in javascript is automatic conversion of value from one data type to another.
+ It takes place when the operands of an expression are of different data types
+
+var x = 3;
+Var y = "3";
+x - y     // 0
 
 
+**********Is javascript a statically typed or a dynamically typed language?**************
+
+JavaScript is a dynamically typed language. In a dynamically typed language, the type of a variable 
+is checked during run-time in contrast to statically typed language, where the type of a variable 
+is checked during compile-time.
+
+
+
+**************** What is the difference between ViewState and SessionState?******************
+
+'ViewState' is specific to a page in a session.
+
+'SessionState' is specific to user specific data that can be accessed across all pages in the web application.
+
+
+
+***************What are all the types of Pop up boxes available in JavaScript?*************
+
+Alert
+Confirm and
+Prompt
+
+
+****************** What are JavaScript Cookies? ***************
+
+Cookies are the small test files stored in a computer and it gets created when the user 
+visits the websites to store information that they need. Example could be User Name details 
+and shopping cart information from the previous visits.
+
+
+*************** *What is break and continue statements?**********************
+
+Break statement exits from the current loop.
+Continue statement continues with next statement of the loop.
+
+
+*******************How to find operating system in the client machine using JavaScript?******************
+
+The 'Navigator.appversion' is used to find the name of the operating system in the client machine.
+
+
+ ***************Is JavaScript case sensitive? Give an example?***********************
+
+Yes, JavaScript is case sensitive. For example, a function parseInt is not same as the function Parseint.
+
+
+*********************************event bubbling?************************
+
+JavaScript allows DOM elements to be nested inside each other. In such a case, 
+if the handler of the child is clicked, the handler of parent will also work as 
+if it were clicked too.
+
+
+********************Does JavaScript support automatic type conversion?***********************
+
+Yes JavaScript does support automatic type conversion, it is the common way of type conversion used by JavaScript developers
+
+
+************What is the use of window object?**********************
+
+The window object is created automatically by the browser that represents a window of a browser. It is not an object of JavaScript. It is a browser object.
+The window object is used to display the popup dialog box. Let's see with description.
+alert(),confirm(), prompt(),open(), close()
+
+
+********************how many ways can create object *************
+
+
+By object literal
+By creating instance of Object directly (using new keyword)
+By using an object constructor (using new keyword)
+
+emp={id:102,name:"Shyam Kumar",salary:40000}  
+var objectname=new Object();
+e=new emp(103,"Vimal Jaiswal",30000);  
+
+
+********************What is the role of a strict mode in JavaScript?***************
+
+The JavaScript strict mode is used to generates silent errors. It provides "use strict"; expression to enable the strict mode. This expression can only be placed as the first statement in a script or a function. For example:
+
+"use strict";    
+x=10;    
+console.log(x)
+
+
+********************setTimeout, setInterval and clearInterval.**********************
+
+The setTimeout(function, delay) function is used to start a timer that calls a particular function after the mentioned delay. 
+The setInterval(function, delay) function is used to repeatedly execute the given function in the mentioned delay and only halts when cancelled.
+The clearInterval(id) function instructs the timer to stop.
+
+
+************** MOST IMPORTAMANT LINK *****************************
+
+https://www.interviewbit.com/javascript-interview-questions/#javascript-hoisting
