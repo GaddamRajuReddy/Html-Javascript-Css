@@ -103,4 +103,13 @@ The cat was playing in the garden.
 
 
 
+
+
+DOCTYPE stands for Document Type
+It tells browser what version of HTML it should follow for rendering webpage.
+HTML file begins with <!DOCTYPE> declaration.
+
+
+
+
 more: https://www.w3schools.com/html/html_form_attributes.asp
