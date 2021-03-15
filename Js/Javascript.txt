@@ -380,6 +380,7 @@ splice(): method can be used to add new items to an array at specified postions:
 var fruits = ["Banana", "Orange", "Apple", "Mango"];	//adding at 2nd position and 0 remval
 fruits.splice(2, 0, "Lemon", "Kiwi");			o/p Banana,Orange,Lemon,Kiwi,Apple,Mango
 fruits.splice(0, 1);					//remove at position 0 , with 1 remove element
+							o/p:Orange,Lemon,Kiwi,Apple,Mango
 
 slice(): method slices out a piece of an array into a new array. 
 
